@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:XamVault.Utils"
+    x:Class="XamVault.Views.LoginPage"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:InverseBoolConverter x:Key="inverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout            
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+
+            <Image Source="Icon" WidthRequest="180" />
+
+            <BoxView HeightRequest="20" />
+
+            <Label Text="XamVault"
+                   HorizontalTextAlignment="Center"
+                   FontFamily="ComfortaaBold"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   TextColor="{
+                        AppThemeBinding
+                            Light={StaticResource DarkPrimaryColor},
+                            Dark={StaticResource LightPrimaryColor}
+                    }" />
+
+            <Label Text="never forget your passwords"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Small"
+                   TextColor="{
+                        AppThemeBinding
+                            Light={StaticResource DarkPrimaryColor},
+                            Dark={StaticResource LightPrimaryColor}
+                    }" />
+
+            <BoxView HeightRequest="20" WidthRequest="300" />
+
+            <StackLayout
+                IsVisible="{Binding IsBusy, Converter={StaticResource inverseBoolConverter}}">
+
+                <Button Text="Login with Apple" />
+
+                <Button Text="Login with Google"
+                    Command="{Binding GoogleLoginCommand}" />
+
+                <BoxView HeightRequest="20" />
+
+                <Label Text="If you don't want to share your passwords with other devices you can use XamVault locally."
+                    WidthRequest="300"
+                    FontSize="Micro"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"/>
+
+                <BoxView HeightRequest="10" />
+
+                <Button Text="Login with biometry"
+                    BackgroundColor="Transparent"
+                    TextColor="{
+                        AppThemeBinding
+                            Light={StaticResource DarkPrimaryColor},
+                            Dark={StaticResource LightPrimaryColor}
+                    }"/>
+            </StackLayout>
+
+            <StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsBusy}"></ActivityIndicator>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamVault.App">
+
+    <Application.Resources>
+        <ResourceDictionary Source="Resources/Themes/Colors.xaml">
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="{
+                        AppThemeBinding
+                            Light={StaticResource LightPrimaryColor},
+                            Dark={StaticResource DarkPrimaryColor}
+                    }" />
+
+                <Setter Property="BarTextColor"
+                        Value="{
+                        AppThemeBinding
+                            Light={StaticResource DarkPrimaryColor},
+                            Dark={StaticResource LightPrimaryColor}
+                    }" />
+            </Style>
+
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{
+                        AppThemeBinding
+                            Light={StaticResource LightPrimaryColor},
+                            Dark={StaticResource DarkPrimaryColor}
+                    }" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{
+                        AppThemeBinding
+                            Light={StaticResource DarkPrimaryColor},
+                            Dark={StaticResource LightPrimaryColor}
+                    }" />
+                <Setter
+                    Property="TextColor"
+                    Value="{
+                        AppThemeBinding
+                            Light={StaticResource LightPrimaryColor},
+                            Dark={StaticResource DarkPrimaryColor}
+                    }" />
+                <Setter Property="FontFamily" Value="ComfortaaBold" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Comfortaa" />
+            </Style>
+
+            <Style TargetType="ListView">
+                <Setter Property="BackgroundColor" Value="{
+                        AppThemeBinding
+                            Light={StaticResource LightPrimaryColor},
+                            Dark={StaticResource DarkPrimaryColor}
+                    }" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

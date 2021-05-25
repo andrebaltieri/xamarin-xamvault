@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamVault.Views.MyVaultPage"
+    NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem            
+            Text="Add"
+            Command="{Binding NavigateToCreatePasswordPageCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <NavigationPage.TitleView>
+        <Label Text="My Vault"
+               FontSize="Title" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15,15">
+                                <Label Text="{Binding Key}" FontSize="Body" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
